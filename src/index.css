@@ -1,61 +1,42 @@
-html {
-  scrollbar-gutter: stable;
-  scroll-behavior: smooth;
-}
-
+p,
+b,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p,
-ul,
-ol {
-  margin: 0;
-  padding: 0;
+h6 {
+	display: block;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
-li {
-  padding-left: 0;
+p {
+	margin: 0;
 }
 
 a {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  outline: none;
+	display: inline-block;
+	text-decoration: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
 }
 
 button {
-  all: unset;
-  cursor: pointer;
-  color: currentColor;
-  background-color: transparent;
+	cursor: pointer;
+	background-color: transparent;
 }
 
-input,
-textarea,
-select {
-  font: inherit;
-  border: none;
-  outline: none;
-  background: none;
+ul li {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-img,
-video {
-  display: block;
-  max-width: 100%;
-  height: auto;
+img {
+	display: block;
+	max-width: 100%;
+	object-fit: cover;
+	object-position: center;
 }
