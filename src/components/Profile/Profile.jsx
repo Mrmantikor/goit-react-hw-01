@@ -1,3 +1,5 @@
+import s from './Profile.module.css';
+
 const Profile = ({
   name,
   tag,
@@ -6,33 +8,30 @@ const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div>
-      <div>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-      alt="User avatar"
-        />
-        <p>Petra Marica</p>
-        <p>@pmarica</p>
-        <p>Salvador, Brasil</p>
+    <div className={s.box}>
+      <div className={s.tag}>
+        <img className={s.profImg} src={image} alt="User avatar" />
+        <p className={s.name}>{name}</p>
+        <p>{tag}</p>
+        <p>{location}</p>
       </div>
 
-      <ul>
-        <li>
+      <ul className={s.list}>
+        <li className={s.item}>
           <span>Followers</span>
-          <span>1000</span>
+          <span>{followers}</span>
         </li>
-        <li>
+        <li className={s.item}>
           <span>Views</span>
-          <span>2000</span>
+          <span>{views}</span>
         </li>
-        <li>
+        <li className={s.item}>
           <span>Likes</span>
-          <span>3000</span>
+          <span>{likes}</span>
         </li>
       </ul>
     </div>
-  )
+  );
 };
 
 export default Profile;
