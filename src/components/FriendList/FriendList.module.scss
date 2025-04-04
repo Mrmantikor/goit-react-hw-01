@@ -1,0 +1,60 @@
+// Переменные
+$black: #0d0d0d;
+$gradient-bg: linear-gradient(135deg, rgba(#1a1a1a, 0.9), rgba(#0d0d0d, 0.95));
+$shadow-base: 0 0 15px rgba($black, 0.5);
+$shadow-hover: 0 0 20px rgba(#ff416c, 0.6);
+
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 50px 20px;
+  padding: 20px;
+  background: $gradient-bg;
+  border-radius: 12px;
+  box-shadow: $shadow-base;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: $shadow-hover;
+
+    &::before {
+      opacity: 0.5;
+    }
+  }
+
+  // Декоративный эффект
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(#ffffff, 0.1), transparent);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: glowRotate 8s infinite linear;
+  }
+
+  .item {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+// Анимация
+@keyframes glowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

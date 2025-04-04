@@ -1,0 +1,240 @@
+$black: #0d0d0d;
+$dark-gray: #1a1a1a;
+$steel-gray: #6b7280;
+$gray: #d1d5db;
+$white: #ffffff;
+$gradient-accent: linear-gradient(45deg, #ff416c, #ff4b2b, #f9d423, #34e89e);
+$shadow-base: 0 0 15px rgba($black, 0.5);
+$shadow-hover: 0 0 20px rgba(#f9d423, 0.8);
+
+.box {
+  width: 450px;
+  height: 450px;
+  border: 3px solid $black;
+  border-radius: 10px;
+  margin: 7rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba($dark-gray, 0.9),
+    rgba($black, 0.95)
+  );
+  box-shadow: $shadow-base;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(#ff416c, 0.6);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($white, 0.1), transparent);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: glowRotate 10s infinite linear;
+  }
+}
+
+.profImg {
+  width: 150px;
+  height: 150px;
+  background-color: $dark-gray;
+  border-radius: 50%;
+  margin-top: 20px;
+  border: 4px solid $gradient-accent;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(#ff4b2b, 0.7);
+  }
+}
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: $steel-gray;
+  text-align: center;
+  padding: 20px;
+
+  .name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $white;
+    background: $gradient-accent;
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba($black, 0.5);
+    animation: gradientMove 4s ease infinite;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #f9d423;
+      text-shadow: 0 0 10px rgba(#f9d423, 0.5);
+    }
+  }
+}
+
+.list {
+  display: flex;
+  width: 100%;
+  background-color: $gray;
+  border-top: 2px solid $black;
+
+  .item {
+    width: 33.33%;
+    height: 100px;
+    border: 1.5px solid $black;
+    border-bottom: 0;
+    border-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: $black;
+    background: linear-gradient(180deg, rgba($white, 0.9), rgba($gray, 0.8));
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: $gradient-accent;
+      color: $white;
+      transform: translateY(-5px);
+      text-shadow: 0 0 10px rgba($black, 0.7);
+    }
+
+    span:first-child {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    span:last-child {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.signature {
+  top: 1px;
+  position: fixed;
+  margin-top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5em 1.5em;
+  border: 2px solid rgba($white, 0.4);
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b, #f9d423, #34e89e);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite;
+  text-shadow: $shadow-base;
+  cursor: pointer;
+  z-index: 1000;
+
+  &:hover {
+    animation: vibration 0.3s ease infinite, pulse 1s infinite;
+    color: #f9d423;
+    text-shadow: 0 0 20px #f9d423, 0 0 30px rgba($white, 0.8);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes vibration {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  80% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes glowRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

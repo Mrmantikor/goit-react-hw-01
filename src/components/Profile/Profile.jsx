@@ -1,6 +1,7 @@
-import s from './Profile.module.css';
+import s from './Profile.module.scss';
 
 const Profile = ({
+  myname,
   name,
   tag,
   location,
@@ -9,6 +10,7 @@ const Profile = ({
 }) => {
   return (
     <div className={s.box}>
+      <span className={s.signature}>{myname}</span>
       <div className={s.tag}>
         <img className={s.profImg} src={image} alt="User avatar" />
         <p className={s.name}>{name}</p>
